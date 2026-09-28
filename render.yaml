@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: namans-journey-to-namrata
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8c4d0" />
+    <meta name="description" content="Naman’s Journey to Namrata is a romantic anniversary game about helping Naman meet Namrata." />
+    <title>Naman’s Journey to Namrata</title>
+  </head>
+  <body>
+    <div class="heart-garden" aria-hidden="true">
+      <span class="garden-heart garden-heart--one">♥</span>
+      <span class="garden-heart garden-heart--two">♥</span>
+      <span class="garden-heart garden-heart--three">♥</span>
+      <span class="garden-heart garden-heart--four">♥</span>
+      <span class="garden-heart garden-heart--five">♥</span>
+      <span class="garden-heart garden-heart--six">♥</span>
+      <span class="garden-heart garden-heart--seven">♥</span>
+    </div>
+
+    <main class="game-shell">
+      <header class="brand-bar">
+        <div class="brand-lockup">
+          <span class="brand-heart" aria-hidden="true">♥</span>
+          <span>Naman <span class="brand-plus">+</span> Namrata</span>
+        </div>
+        <span class="edition-label">A LITTLE LOVE QUEST</span>
+      </header>
+
+      <section id="intro-screen" class="intro-card" aria-labelledby="game-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> MADE WITH LOVE, FOR TWO</p>
+          <h1 id="game-title">Naman’s Journey to <span>Namrata</span></h1>
+          <p class="intro-description">
+            It’s the night before their anniversary. Walk through the city, collect little gifts, and relive the memories that lead Naman to his favorite person.
+          </p>
+          <button id="play-button" class="play-button" type="button" aria-busy="true">
+            <span id="play-button-label">Play the game</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="control-note" role="status" aria-live="polite"><span>♥</span> A little anniversary story <i>·</i> Keyboard and touch controls</p>
+        </div>
+
+        <div class="portrait-story" aria-label="Photos of Naman and Namrata">
+          <figure class="photo-card photo-card--one">
+            <img src="/assets/img1.jpg" alt="Namrata and Naman together" />
+          </figure>
+          <figure class="photo-card photo-card--two">
+            <img src="/assets/img2.jpg" alt="Naman and Namrata smiling together" />
+          </figure>
+          <figure class="photo-card photo-card--three">
+            <img src="/assets/img3.jpg" alt="Naman and Namrata sharing a meal" />
+          </figure>
+          <figure class="photo-card photo-card--four">
+            <img src="/assets/img4.jpg" alt="Naman and Namrata close together" />
+          </figure>
+          <span class="portrait-connector" aria-hidden="true">♥</span>
+          <div class="loading-couple" role="img" aria-label="Naman and Namrata standing together as hearts float up">
+            <span class="loading-stage" aria-hidden="true"></span>
+            <div class="loading-character loading-character--naman">
+              <img src="/assets/naman.png" alt="" />
+              <span class="loading-hearts" aria-hidden="true">
+                <span class="loading-heart loading-heart--one">♥</span>
+                <span class="loading-heart loading-heart--two">♥</span>
+                <span class="loading-heart loading-heart--three">♥</span>
+              </span>
+            </div>
+            <div class="loading-character loading-character--namrata">
+              <img src="/assets/namrata.png" alt="" />
+              <span class="loading-hearts" aria-hidden="true">
+                <span class="loading-heart loading-heart--one">♥</span>
+                <span class="loading-heart loading-heart--two">♥</span>
+                <span class="loading-heart loading-heart--three">♥</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <span class="card-doodle card-doodle--one" aria-hidden="true">♥</span>
+        <span class="card-doodle card-doodle--two" aria-hidden="true">✳</span>
+      </section>
+
+      <section id="game-screen" class="game-card" aria-label="Naman’s Journey to Namrata" hidden>
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> THE ANNIVERSARY WALK</p>
+            <h2>One little memory at a time</h2>
+          </div>
+          <div class="heading-tools">
+            <div class="heart-counter" aria-live="polite">
+              <span aria-hidden="true">✿</span>
+              <span><strong id="item-count">0</strong> / 4 chiji</span>
+            </div>
+            <button id="music-toggle" class="sound-toggle" type="button" aria-pressed="true" aria-label="Turn sound off">♫ Sound on</button>
+          </div>
+        </div>
+        <div id="game-viewport" class="game-viewport">
+          <div id="pixi-mount" class="pixi-mount game-mount--balcony"></div>
+          <div id="interaction-hint" class="interaction-hint" role="status" hidden></div>
+          <section id="dialogue-panel" class="dialogue-panel" role="dialog" aria-modal="true" aria-labelledby="dialogue-speaker" hidden>
+            <div class="dialogue-copy">
+              <p id="dialogue-kicker" class="dialogue-kicker">THE NIGHT BEFORE</p>
+              <h3 id="dialogue-speaker" class="dialogue-speaker">Naman</h3>
+              <p id="dialogue-text" class="dialogue-text"></p>
+            </div>
+            <div id="memory-media" class="memory-media" hidden></div>
+            <button id="dialogue-next" class="dialogue-next" type="button">Continue →</button>
+          </section>
+          <section id="garden-lock-panel" class="garden-lock-panel" role="dialog" aria-modal="true" aria-labelledby="garden-lock-title" hidden>
+            <div class="garden-lock-card">
+              <span class="garden-lock-icon" aria-hidden="true">🔒</span>
+              <p class="garden-lock-kicker">AT THE GARDEN GATE</p>
+              <h3 id="garden-lock-title">A little date lock</h3>
+              <p class="garden-lock-description">A special date opens the way. Enter it as day / month / year.</p>
+              <form id="garden-lock-form" class="garden-lock-form" autocomplete="off">
+                <div class="date-code-fields" aria-label="Enter the date as day, month, and year">
+                  <label class="visually-hidden" for="code-day">Day</label>
+                  <input id="code-day" class="date-code-input" data-date-part type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="DD" aria-label="Day" />
+                  <span aria-hidden="true">/</span>
+                  <label class="visually-hidden" for="code-month">Month</label>
+                  <input id="code-month" class="date-code-input" data-date-part type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="MM" aria-label="Month" />
+                  <span aria-hidden="true">/</span>
+                  <label class="visually-hidden" for="code-year">Year</label>
+                  <input id="code-year" class="date-code-input date-code-input--year" data-date-part type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="YYYY" aria-label="Year" />
+                </div>
+                <button id="garden-lock-submit" class="garden-lock-submit" type="submit">Check the date →</button>
+              </form>
+              <p id="garden-lock-feedback" class="garden-lock-feedback" role="status" aria-live="polite">Enter day / month / year.</p>
+              <button id="garden-enter-button" class="play-button play-button--small garden-enter-button" type="button" hidden>
+                <span>Enter the garden</span><span class="button-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </section>
+          <div id="ending-card" class="ending-card" hidden>
+            <span class="win-heart" aria-hidden="true">♥</span>
+            <p class="eyebrow">THE BEST PART WAS FINDING YOU</p>
+            <h3>Happy Anniversary, my dear ❤️</h3>
+            <p>Naman + Namrata</p>
+            <button id="restart-button" class="play-button play-button--small" type="button">
+              <span>Walk through it again</span><span class="button-arrow" aria-hidden="true">↻</span>
+            </button>
+          </div>
+        </div>
+        <div class="touch-controls" aria-label="Touch controls">
+          <div class="movement-controls">
+            <button class="touch-control touch-control--direction" type="button" data-control="left" aria-label="Walk left">←</button>
+            <button class="touch-control touch-control--direction" type="button" data-control="right" aria-label="Walk right">→</button>
+          </div>
+          <div class="action-controls">
+            <button class="touch-control touch-control--jump" type="button" data-control="jump" aria-label="Jump">↑ <span>JUMP</span></button>
+            <button id="interact-button" class="touch-control touch-control--talk" type="button" data-control="talk" disabled>♥ <span>TALK</span></button>
+          </div>
+        </div>
+        <footer class="game-footer">
+          <span id="game-status" role="status">A quiet night, and one person on Naman’s mind.</span>
+          <span class="keyboard-note">← → / A D to walk · ↑ / Space to jump · E to interact</span>
+          <button id="back-button" class="text-button" type="button">Back to the beginning</button>
+        </footer>
+      </section>
+
+      <footer class="page-footer">
+        <span>For the one worth finding <span aria-hidden="true">♥</span></span>
+        <span>ONE HEART AT A TIME</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
